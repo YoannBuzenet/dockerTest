@@ -8,8 +8,12 @@ WORKDIR D:/Code/dockerTest
 # Copying this separately prevents re-running npm install on every code change.
 COPY package*.json ./
 
+COPY index.js ./
+
 # Install production dependencies.
 RUN npm install --only=production
+
+EXPOSE 3000
 
 # Run the web service on container startup.
 CMD [ "node", "index.js" ]
